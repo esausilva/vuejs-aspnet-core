@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netcore-vuejs", "netcore-vuejs\netcore-vuejs.csproj", "{43D9BF20-467E-4500-A0C5-727775F48B2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43D9BF20-467E-4500-A0C5-727775F48B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D9BF20-467E-4500-A0C5-727775F48B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D9BF20-467E-4500-A0C5-727775F48B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D9BF20-467E-4500-A0C5-727775F48B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCD66E58-5474-42A7-921F-DE368F0E319C}
+	EndGlobalSection
+EndGlobal

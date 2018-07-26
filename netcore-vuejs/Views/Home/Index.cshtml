@@ -1,0 +1,24 @@
+﻿<h1>Getting Started with VueJS in .NET Core</h1>
+
+<div id="form">
+    <p>
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name" v-model="FullName" />
+    </p>
+
+    <p>
+        <label>Email</label>
+        <input type="text" placeholder="Enter your email" v-model="Email" />
+        <span class="invalid-input" v-show="InvalidEmail">Invalid Email</span>
+    </p>
+
+    <p>
+        <label>Comments</label>
+        <textarea rows="10" placeholder="Enter some positive comments" v-model="Comments"></textarea>
+    </p>
+
+    <div id="form-buttons">
+        <button type="button" class="danger" v-on:click="ResetForm">Reset Form</button>
+        <button type="button" class="success" ref="SubmitButton" v-bind:disabled="isSubmitDisabled" v-on:click="SubmitForm">Submit Form</button>
+    </div>
+</div>
