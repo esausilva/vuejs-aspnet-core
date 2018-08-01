@@ -1,6 +1,6 @@
 # Getting Started with Vue.js in .NET Core
 
-Beginner tutorial on using Vue.js with .NET Core and Razor Pages
+Beginner tutorial on using Vue.js with .NET Core and Razor Pages in Visual Studio
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ To download and install Node 9.11.2 follow [https://nodejs.org/download/release/
 
 ## Usage
 
-Open ***Command Prompt***, clone this repo and `cd` into the project to install JavaScript dependencies
+Open **_Command Prompt_**, clone this repo and `cd` into the project to install JavaScript dependencies
 
 ```
 git clone https://github.com/esausilva/vuejs-aptnet-core.git
@@ -22,7 +22,6 @@ After installing dependencies, double click `netcore-vuejs.sln` to open the proj
 
 ## Tutorial
 
-Follow the tutorial here (LINK COMMING SOON)
+Follow the tutorial: [https://blog.bitsrc.io/getting-started-with-vue-js-in-net-core-using-visual-studio-efbb43703630](https://blog.bitsrc.io/getting-started-with-vue-js-in-net-core-using-visual-studio-efbb43703630)
 
 -Esau
-
