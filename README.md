@@ -4,9 +4,7 @@ Beginner tutorial on using Vue.js with .NET Core and Razor Pages in Visual Studi
 
 ## Prerequisites
 
-You will need to have Node and NPM installed. However, since the project is using `gulp-sass`, you will need Node 9.x.
-
-To download and install Node 9.11.2 follow [https://nodejs.org/download/release/v9.11.2/](https://nodejs.org/download/release/v9.11.2/) and select **node-v9.11.2-x64.msi** or **node-v9.11.2-x86.msi**.
+You will need to have Node and NPM installed.
 
 ## Usage
 
@@ -16,6 +14,15 @@ Open **_Command Prompt_**, clone this repo and `cd` into the project to install 
 git clone https://github.com/esausilva/vuejs-aptnet-core.git
 cd vuejs-aptnet-core\netcore-vuejs
 npm i
+```
+
+**Note**: Since this project is using `gulp-sass` and the latest version is not compatible with Node 10.x because it depends on an older version of `node-sass`. If you have Node 10.x installed, you will have to update `node-sass` dependency in `gulp-sass` directory.
+
+In **_Command Prompt_**, type the following from the root of the project
+
+```
+cd netcore-vuejs\node_modules\gulp-sass
+npm i node-sass@latest
 ```
 
 After installing dependencies, double click `netcore-vuejs.sln` to open the project in Visual Studio.
