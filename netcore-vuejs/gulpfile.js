@@ -10,6 +10,8 @@ const rename = require('gulp-rename');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const webpack = require('webpack-stream');
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
 
 const scriptsPath = 'Scripts/**/*.js';
 const stylesPath = 'Styles/**/*.scss';
@@ -22,7 +24,9 @@ gulp.task('sass:prod', () => {
     // These are the plugins to be passed to PostCSS to do the autoprefixing
     // and minification
     const plugins = [
-        autoprefixer({ browsers: ['>0.25%', 'not ie 11', 'not op_mini all'] }),
+        // For a list of browsers that this rule will support visit:
+        // http://browserl.ist/?q=%3E0.25%25
+        autoprefixer({ browsers: ['>0.25%'] }),
         cssnano
     ];
 
@@ -40,6 +44,15 @@ gulp.task('sass:prod', () => {
 // Development only
 gulp.task('sass:dev', () => {
     return gulp.src(stylesPath)
+        // Handles errors and prevents from breaking the pipeline
+        .pipe(plumber({
+            errorHandler(err) {
+                notify.onError({
+                    title: `Gulp error in ${err.plugin}`,
+                    message: err.toString()
+                })(err);
+            }
+        }))
         .pipe(sass())
         .pipe(rename('site.css'))
         .pipe(gulp.dest('wwwroot/css'));
@@ -65,17 +78,26 @@ gulp.task('js:prod', () => {
         // rename the output file
         .pipe(rename('site.min.js'))
         // write output file to destination
-        .pipe(gulp.dest('wwwroot/js'))
+        .pipe(gulp.dest('wwwroot/js'));
 });
 
 // Development only
 gulp.task('js:dev', () => {
     gulp.src(scriptsPath)
+        // Handles errors and prevents from breaking the pipeline
+        .pipe(plumber({
+            errorHandler(err) {
+                notify.onError({
+                    title: `Gulp error in ${err.plugin}`,
+                    message: err.toString()
+                })(err);
+            }
+        }))
         .pipe(webpack({
             mode: 'development'
         }))
         .pipe(rename('site.js'))
-        .pipe(gulp.dest('wwwroot/js'))
+        .pipe(gulp.dest('wwwroot/js'));
 });
 
 /**
