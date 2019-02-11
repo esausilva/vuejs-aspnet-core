@@ -25,6 +25,12 @@ cd netcore-vuejs\node_modules\gulp-sass
 npm i node-sass@latest
 ```
 
+If you are running Node 11 or greater, you will need to install `natives`. This is because Gulp breaks with Node 11 and this is the fix. See [this issue](https://github.com/gulpjs/gulp/issues/2246) for more info.
+
+```
+npm i natives@1.1.6
+```
+
 After installing dependencies, double click `netcore-vuejs.sln` to open the project in Visual Studio.
 
 ## Tutorial
