@@ -26,7 +26,8 @@ gulp.task('sass:prod', () => {
     const plugins = [
         // For a list of browsers that this rule will support visit:
         // http://browserl.ist/?q=%3E0.25%25
-        autoprefixer({ browsers: ['>0.25%'] }),
+        //autoprefixer({ browsers: ['>0.25%'] }), // Moved to package.json
+        autoprefixer(),
         cssnano
     ];
 
