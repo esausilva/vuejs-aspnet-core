@@ -14,7 +14,7 @@
     "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^9.6.0",
     "cssnano": "^4.1.10",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.1",
@@ -24,9 +24,7 @@
     "gulp-uglify": "^3.0.2",
     "webpack-stream": "^5.2.1"
   },
-  "dependencies": {
-    "natives": "^1.1.6"
-  },
+  "dependencies": {},
   "browserslist": [
     ">0.2%",
     "not dead",

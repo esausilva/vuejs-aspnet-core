@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='js:prod, sass:prod' ProjectOpened='watch' />
+﻿/// <binding BeforeBuild='jsprod, sassprod' ProjectOpened='watch' />
 'use strict';
 
 const gulp = require('gulp');
@@ -20,17 +20,13 @@ const stylesPath = 'Styles/**/*.scss';
  * CSS Processing
  * */
 // Production Only
-gulp.task('sass:prod', () => {
+function sassprod() {
     // These are the plugins to be passed to PostCSS to do the autoprefixing
     // and minification
     const plugins = [
-        // For a list of browsers that this rule will support visit:
-        // http://browserl.ist/?q=%3E0.25%25
-        //autoprefixer({ browsers: ['>0.25%'] }), // Moved to package.json
         autoprefixer(),
         cssnano
     ];
-
     return gulp.src(stylesPath)
         // First process thru sass loader
         .pipe(sass())
@@ -40,10 +36,11 @@ gulp.task('sass:prod', () => {
         .pipe(rename('site.min.css'))
         // write output file to destination
         .pipe(gulp.dest('wwwroot/css'));
-});
+}
+exports.sassprod = sassprod;
 
 // Development only
-gulp.task('sass:dev', () => {
+function sassdev() {
     return gulp.src(stylesPath)
         // Handles errors and prevents from breaking the pipeline
         .pipe(plumber({
@@ -57,14 +54,15 @@ gulp.task('sass:dev', () => {
         .pipe(sass())
         .pipe(rename('site.css'))
         .pipe(gulp.dest('wwwroot/css'));
-});
+}
+exports.sassdev = sassdev;
 
 /**
  * JS Processing
  * */
 // Production Only
-gulp.task('js:prod', () => {
-    gulp.src(scriptsPath)
+function jsprod() {
+    return gulp.src(scriptsPath)
         // First process thru Webpack
         // setting the mode to 'production'
         .pipe(webpack({
@@ -80,11 +78,12 @@ gulp.task('js:prod', () => {
         .pipe(rename('site.min.js'))
         // write output file to destination
         .pipe(gulp.dest('wwwroot/js'));
-});
+}
+exports.jsprod = jsprod;
 
 // Development only
-gulp.task('js:dev', () => {
-    gulp.src(scriptsPath)
+function jsdev() {
+    return gulp.src(scriptsPath)
         // Handles errors and prevents from breaking the pipeline
         .pipe(plumber({
             errorHandler(err) {
@@ -99,14 +98,17 @@ gulp.task('js:dev', () => {
         }))
         .pipe(rename('site.js'))
         .pipe(gulp.dest('wwwroot/js'));
-});
+}
+exports.jsdev = jsdev;
 
 /**
  * Watch
  * */
 // Everytime we save JS/Sass files, run the development tasks
 // to process and perform conversions
-gulp.task('watch', () => {
-    gulp.watch(stylesPath, ['sass:dev']);
-    gulp.watch(scriptsPath, ['js:dev']);
-});
+function watch(done) {
+    gulp.watch(stylesPath, gulp.series('sassdev'));
+    gulp.watch(scriptsPath, gulp.series('jsdev'));
+    done();
+}
+exports.watch = gulp.series(watch);
