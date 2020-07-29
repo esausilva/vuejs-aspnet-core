@@ -16,13 +16,13 @@ cd vuejs-aptnet-core\netcore-vuejs
 npm i
 ```
 
-*NOTE: You will need to have [Node](https://nodejs.org/en/) installed. Also you will need [NPM Task Runner]( https://marketplace.visualstudio.com/items?itemName=MadsKristensen.NPMTaskRunner ) installed before opening the project.*
+_NOTE: You will need to have [Node](https://nodejs.org/en/) installed. Also you will need [NPM Task Runner](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.NPMTaskRunner) installed before opening the project._
 
 After installing dependencies, double click `netcore-vuejs.sln` to open the project in Visual Studio.
 
 ## Tutorial
 
-Follow the tutorial: [https://blog.bitsrc.io/getting-started-with-vue-js-in-net-core-using-visual-studio-efbb43703630](https://blog.bitsrc.io/getting-started-with-vue-js-in-net-core-using-visual-studio-efbb43703630)
+Follow the tutorial: [https://esausilva.com/2018/07/31/getting-started-with-vue-js-in-net-core-using-visual-studio/](https://esausilva.com/2018/07/31/getting-started-with-vue-js-in-net-core-using-visual-studio/)
 
 ## Giving Back
 
