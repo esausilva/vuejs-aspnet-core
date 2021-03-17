@@ -1,27 +1,24 @@
 ﻿import { validateEmail } from './utils';
 
-new Vue({
-    el: '#form',
-    data: {
-        FullName: '',
-        Email: '',
-        Comments: '',
-        InvalidEmail: false
+const Form = {
+    data() {
+        return {
+            FullName: '',
+            Email: '',
+            Comments: '',
+            InvalidEmail: false,
+        };
     },
     computed: {
         isSubmitDisabled() {
             let isDisabled = true;
 
-            if (
-                this.FullName !== '' &&
-                this.Email !== '' &&
-                this.Comments !== ''
-            ) {
+            if (this.FullName !== '' && this.Email !== '' && this.Comments !== '') {
                 isDisabled = false;
             }
 
             return isDisabled;
-        }
+        },
     },
     methods: {
         ResetForm() {
@@ -43,14 +40,20 @@ new Vue({
                 axios({
                     method: 'post',
                     url: '/Home/SubmitedForm',
-                    data: { "Fields": this.$data }
-                }).then(res => {
-                    alert('Successfully submitted feedback form ');
-                    this.$refs.SubmitButton.setAttribute("disabled", "disabled");
-                }).catch(err => {
-                    alert(`There was an error submitting your form. See details: ${err}`);
-                });
+                    data: { Fields: this.$data },
+                })
+                    .then((res) => {
+                        alert('Successfully submitted feedback form ');
+                        this.$refs.SubmitButton.setAttribute('disabled', 'disabled');
+                    })
+                    .catch((err) => {
+                        alert(
+                            `There was an error submitting your form. See details: ${err}`
+                        );
+                    });
             }
-        }
-    }
-});
+        },
+    },
+};
+
+Vue.createApp(Form).mount('#form');
